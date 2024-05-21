@@ -11,13 +11,13 @@ void veraprovacao(struct Alunos lista[10], struct Alunos listaap[10], struct Alu
     int qtap = 0, qtrep = 0;
     for (int i = 0; i < 10; i++){
         if (lista[i].media >= 5.0){
-            strcpy(lista[i].nome, listaap[qtap].nome);
+            strcpy(listaap[qtap].nome, lista[i].nome);
             listaap[qtap].media = lista[i].media;
             listaap[qtap].matr = lista[i].matr;
             qtap++;
         }
         else{
-            strcpy(lista[i].nome, listarep[qtrep].nome);
+            strcpy(listarep[qtrep].nome, lista[i].nome);
             listarep[qtrep].media = lista[i].media;
             listarep[qtrep].matr = lista[i].matr;
             qtrep++;
@@ -25,17 +25,16 @@ void veraprovacao(struct Alunos lista[10], struct Alunos listaap[10], struct Alu
     }
 }
 
-void mostraralunos(struct Alunos lista[10]){
-    for (int i = 0; i < 10; i++){
-        printf("Aluno %i: %s com nota %.2f\n", i+1, lista[i].nome, lista[i].media);
+void mostraralunos(struct Alunos lista[], int n){
+    for (int i = 0; i < n; i++){
+        printf("Aluno %d: %s com nota %.2f\n", lista[i].matr, lista[i].nome, lista[i].media);
     }
 }
 
 int main(){
     struct Alunos tot[10];
-    struct Alunos app[10];
-    struct Alunos rep[10];
 
+    int app = 0, rep = 0;
     printf("Insira os dados de 10 alunos\n");
     for (int i = 0; i < 10; i++){
         printf("Aluno %d\nNome: ", i+1);
@@ -44,16 +43,22 @@ int main(){
         scanf("%d", &tot[i].matr);
         printf("Media final: ");
         scanf("%f", &tot[i].media);
+        if (tot[i].media < 5.0){
+            rep++;
+        }
+        else{
+            app++;
+        }
     }
 
-    mostraralunos(tot);
-
     
-    veraprovacao(tot, app, rep);
+    struct Alunos lapp[app];
+    struct Alunos lrep[rep];
+    veraprovacao(tot, lapp, lrep);
 
     printf("\n\t|Alunos aprovados|\n");
-    mostraralunos(app);
+    mostraralunos(lapp, app);
     printf("\n\t|Alunos reprovados|\n");
-    mostraralunos(rep);
+    mostraralunos(lrep, rep);
     
 }
