@@ -2,3 +2,5 @@ Questionarios respondidos atpe agora:
 > Lista de Conceitos Basicos
 > Lista de Estruturas de Decisão
 > Lista de Estrutura de Repetição
+
+vmM7Hjw-PJVbh52QZIiFuyqmxqsUK7N-RILK9yBHBYy8hy0Ht9cyQ1HtNX5_NbfkFWCAyNRtP_Kq8uzd0FCk9ZiN90Vuz1vHGAxkqhO7haWWHR1RRMFvlhVmiT33QuYiSWyC3mptnXJbFjkuj73h5az3drwAtHDUPmaWiFxsyi8
